@@ -32,7 +32,7 @@ public class player : MonoBehaviour
     private void FixedUpdate()
     {
         rigidBodyComponent.velocity = new Vector3(
-            horizontalInput,
+            horizontalInput * 2,
             rigidBodyComponent.velocity.y,
             rigidBodyComponent.velocity.z);
 
@@ -46,7 +46,7 @@ public class player : MonoBehaviour
             float jumpPower = 5;
             if (superJumpCount > 0)
             {
-                jumpPower *= 2;
+                jumpPower *= 1.5f;
                 superJumpCount--;
             }
             rigidBodyComponent.AddForce(Vector3.up * jumpPower, ForceMode.VelocityChange);
